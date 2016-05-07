@@ -3,13 +3,18 @@ public class JogoComTentativas implements MecanicaDoJogo {
 
 	@Override
 	public boolean jogoAcabou(String palavraCorreta, String palavraJogador) {
-		// TODO Auto-generated method stub
+		if (jogadorAcertouPalavra(palavraCorreta, palavraJogador)) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean jogadorAcertouPalavra(String palavraCorreta, String palavraJogador) {
-		// TODO Auto-generated method stub
+		if (palavraCorreta.toUpperCase().equals(palavraJogador)){
+			return true;
+		}
+
 		return false;
 	}
 
@@ -20,8 +25,22 @@ public class JogoComTentativas implements MecanicaDoJogo {
 
 	@Override
 	public Double pontuacaoFinalJogador(String palavraCorreta, String palavraJogador) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		Double pontuacaoFinal = 0d;
+		Double pontuacaoPorPalavra = 100d / palavraCorreta.length();
+		
+		char[] charPalavraCorreta = palavraCorreta.toCharArray();
+		char[] charPalavraJogador = palavraJogador.toCharArray();
+		int i = 0;
 
+		for (char c:  charPalavraCorreta){
+			if (c == charPalavraJogador[i]){
+				pontuacaoFinal += pontuacaoPorPalavra;
+			} else {
+				pontuacaoFinal -= pontuacaoPorPalavra;
+			}
+		}
+		
+		return pontuacaoFinal;
+	}
 }
