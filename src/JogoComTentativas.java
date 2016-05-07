@@ -2,25 +2,24 @@
 public class JogoComTentativas implements MecanicaDoJogo {
 
 	@Override
-	public boolean jogoAcabou() {
+	public boolean jogoAcabou(String palavraCorreta, String palavraJogador) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean jogadorAcertouPalavra() {
+	public boolean jogadorAcertouPalavra(String palavraCorreta, String palavraJogador) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean jogadorPodeAcertarPalavraNovamente() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
-	public Integer pontuacaoFinalJogador() {
+	public Double pontuacaoFinalJogador(String palavraCorreta, String palavraJogador) {
 		// TODO Auto-generated method stub
 		return null;
 	}

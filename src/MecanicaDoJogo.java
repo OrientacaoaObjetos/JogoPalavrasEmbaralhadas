@@ -1,12 +1,12 @@
 
 public interface MecanicaDoJogo {
 	
-	boolean jogoAcabou();
+	boolean jogoAcabou(String palavraCorreta, String palavraJogador);
 	
-	boolean jogadorAcertouPalavra();
+	boolean jogadorAcertouPalavra(String palavraCorreta, String palavraJogador);
 	
 	boolean jogadorPodeAcertarPalavraNovamente();
 	
-	Integer pontuacaoFinalJogador();
+	Double pontuacaoFinalJogador(String palavraCorreta, String palavraJogador);
 
 }
