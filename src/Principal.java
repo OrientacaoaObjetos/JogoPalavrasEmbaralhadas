@@ -11,6 +11,9 @@ public class Principal {
 		if (in.nextLine().equals("0")) {
 			FabricaMecanicaDoJogo fabrica = new FabricaMecanicaDoJogo();
 			MecanicaDoJogo jogo = fabrica.mecanicaDoJogo(Boolean.TRUE);
+			
+			
+			
 		} else  {
 			
 		}
