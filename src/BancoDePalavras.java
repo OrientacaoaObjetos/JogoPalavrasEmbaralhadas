@@ -10,6 +10,10 @@ public class BancoDePalavras {
 	
 	private String palavraSorteada;
 	
+	public BancoDePalavras() {
+		sortearPalavra();
+	}
+	
 	private List<String> listaPalavras() throws IOException {
 		
 		List<String> lista = new ArrayList<>();

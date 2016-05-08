@@ -10,7 +10,7 @@ public class JogoSemTentativas implements MecanicaDoJogo{
 
 	@Override
 	public boolean jogadorAcertouPalavra(String palavraCorreta, String palavraJogador) {
-		if (palavraCorreta.toUpperCase().equals(palavraJogador)){
+		if (palavraCorreta.toUpperCase().equals(palavraJogador.toUpperCase())){
 			return true;
 		}
 
@@ -26,7 +26,7 @@ public class JogoSemTentativas implements MecanicaDoJogo{
 	public Double pontuacaoFinalJogador(String palavraCorreta, String palavraJogador) {
 		
 		Double pontuacaoFinal = 0d;
-		Double pontuacaoPorPalavra = 100d / palavraCorreta.length();
+		Double pontuacaoPorPalavra = 1000d / palavraCorreta.length();
 		
 		char[] charPalavraCorreta = palavraCorreta.toCharArray();
 		char[] charPalavraJogador = palavraJogador.toCharArray();
@@ -36,6 +36,12 @@ public class JogoSemTentativas implements MecanicaDoJogo{
 			if (c == charPalavraJogador[i]){
 				pontuacaoFinal += pontuacaoPorPalavra;
 			}
+			
+			if (i == palavraJogador.length()-1) {
+				break;
+			}
+			
+			i++;
 		}
 		
 		return pontuacaoFinal;

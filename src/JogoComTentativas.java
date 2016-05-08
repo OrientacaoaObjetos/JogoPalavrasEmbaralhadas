@@ -11,7 +11,7 @@ public class JogoComTentativas implements MecanicaDoJogo {
 
 	@Override
 	public boolean jogadorAcertouPalavra(String palavraCorreta, String palavraJogador) {
-		if (palavraCorreta.toUpperCase().equals(palavraJogador)){
+		if (palavraCorreta.toUpperCase().equals(palavraJogador.toUpperCase())){
 			return true;
 		}
 
@@ -36,11 +36,15 @@ public class JogoComTentativas implements MecanicaDoJogo {
 		for (char c:  charPalavraCorreta){
 			if (c == charPalavraJogador[i]){
 				pontuacaoFinal += pontuacaoPorPalavra;
-			} else {
-				pontuacaoFinal -= pontuacaoPorPalavra;
+			} 
+			
+			if (i == palavraJogador.length()-1) {
+				break;
 			}
+			
+			i++;
 		}
-		
+
 		return pontuacaoFinal;
 	}
 }
