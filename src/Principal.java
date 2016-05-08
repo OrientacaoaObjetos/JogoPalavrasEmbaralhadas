@@ -8,6 +8,7 @@ public class Principal {
 		FabricaEmbaralhadores fabricaEmbaralhadores = new FabricaEmbaralhadores();
 		Embaralhador embaralhador = fabricaEmbaralhadores.embaralhadorAleatorio();
 		BancoDePalavras banco = new BancoDePalavras();
+		String palavraJogador = "";
 		
 		System.out.println("Bem vindo Jogador(a)!!!");
 		System.out.println("\nEscolha seu modo de jogo: (0)Modo Fácil (1)Modo Difícil");
@@ -24,7 +25,7 @@ public class Principal {
 				System.out.println(palavraEmbaralhada);
 				
 				in = new Scanner(System.in);
-				String palavraJogador = in.nextLine();
+				palavraJogador = in.nextLine();
 				if (jogo.jogoAcabou(banco.getPalavraSorteada(), palavraJogador)) {
 					System.out.println("\n\nParabéns você acertou a palavra!!!");
 					System.out.println("A sua pontuação final foi: " + jogo.pontuacaoFinalJogador(banco.getPalavraSorteada(), palavraJogador).intValue());
@@ -37,20 +38,27 @@ public class Principal {
 				}
 			}
 			
+			if (jogo.jogadorAcertouPalavra(banco.getPalavraSorteada(), palavraJogador)) {
+				System.out.println("Parabéns você encerrou o game.");
+			} else {
+				System.out.println("Game Over!!!");
+			}
+			
 		} else  {
 			
-			MecanicaDoJogo jogo = fabrica.mecanicaDoJogo(Boolean.TRUE);
+			MecanicaDoJogo jogo = fabrica.mecanicaDoJogo(Boolean.FALSE);
 			String palavraEmbaralhada = embaralhador.embaralharPalavras(banco.getPalavraSorteada());
 			
 			System.out.println("Qual é a palavra:");
 			System.out.println(palavraEmbaralhada);
 			
 			in = new Scanner(System.in);
-			String palavraJogador = in.nextLine();
+			palavraJogador = in.nextLine();
 			
 			if (jogo.jogoAcabou(banco.getPalavraSorteada(), palavraJogador)) {
 				System.out.println("\n\nParabéns você acertou a palavra!!!");
 				System.out.println("A sua pontuação final foi: " + jogo.pontuacaoFinalJogador(banco.getPalavraSorteada(), palavraJogador).intValue());
+				System.out.println("Parabéns você encerrou o game.");
 			} else {
 				System.out.println("A sua pontuação final foi: " + jogo.pontuacaoFinalJogador(banco.getPalavraSorteada(), palavraJogador).intValue());
 				System.out.println("Game Over!!!");

@@ -17,6 +17,12 @@ public class RandomPalavra implements Embaralhador {
 		     caracteres[i] = ocharaters.get(i); 
 		}
 		
-		return new String(caracteres);
+		String palavraEmbaralhada = new String(caracteres);
+		
+		if (palavra.toUpperCase().equals(palavraEmbaralhada.toUpperCase())) {
+			palavraEmbaralhada = embaralharPalavras(palavra);
+		}
+		
+		return palavraEmbaralhada;
 	}
 }
