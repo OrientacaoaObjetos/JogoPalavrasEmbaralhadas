@@ -3,11 +3,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BancoDePalavras {
 	
-	public List<String> listaPalavras() throws IOException {
+	private String palavraSorteada;
+	
+	private List<String> listaPalavras() throws IOException {
 		
 		List<String> lista = new ArrayList<>();
 		
@@ -20,14 +23,23 @@ public class BancoDePalavras {
 			linha = br.readLine();
 		}
 		
-		System.out.println(lista);
-		
 		return lista;
 		
 	}
 	
-	public static void main(String[] args) throws IOException {
-		BancoDePalavras banco = new BancoDePalavras();
-		banco.listaPalavras();
+	public void sortearPalavra() {
+		try {
+			List<String> lista = listaPalavras();
+			Collections.shuffle(lista);
+			this.palavraSorteada = lista.get(0);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+	public String getPalavraSorteada() {
+		return palavraSorteada;
 	}
 }
