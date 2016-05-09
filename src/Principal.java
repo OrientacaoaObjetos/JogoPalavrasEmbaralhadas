@@ -10,6 +10,7 @@ public class Principal {
 		BancoDePalavras banco = new BancoDePalavras();
 		String palavraJogador = "";
 		
+		System.out.println("------Game Jogo Palavras Embaralhadas-------");
 		System.out.println("Bem vindo Jogador(a)!!!");
 		System.out.println("\nEscolha seu modo de jogo: (0)Modo Fácil (1)Modo Difícil (2) Sair");
 		
@@ -72,5 +73,8 @@ public class Principal {
 			in = new Scanner(System.in);
 			opcao = in.nextLine(); 
 		}
+		
+		System.out.println("------Game Jogo Palavras Embaralhadas-------");
+		System.out.println("Desenvolvido por: Emanuel Rocha Melechco");
 	}
 }
