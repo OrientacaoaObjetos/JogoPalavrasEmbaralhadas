@@ -33,10 +33,14 @@ public class JogoComTentativas implements MecanicaDoJogo {
 		char[] charPalavraJogador = palavraJogador.toCharArray();
 		int i = 0;
 
-		for (char c:  charPalavraCorreta){
-			if (c == charPalavraJogador[i]){
-				pontuacaoFinal += pontuacaoPorPalavra;
-			} 
+		for (char c:  charPalavraJogador){
+			if (i < palavraCorreta.length()) {
+				if (c == charPalavraCorreta[i]){
+					pontuacaoFinal += pontuacaoPorPalavra;
+				} 
+			} else {
+				pontuacaoFinal -= pontuacaoPorPalavra;
+			}
 			
 			if (i == palavraJogador.length()-1) {
 				break;
